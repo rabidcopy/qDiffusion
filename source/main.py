@@ -258,8 +258,8 @@ class Coordinator(QObject):
         self.nvidia_torch_version = "2.1.0+cu118"
         self.nvidia_torchvision_version = "0.16+cu118"
 
-        self.amd_torch_version = "2.1.0+rocm5.6"
-        self.amd_torchvision_version = "0.16.0+rocm5.6"
+        self.amd_torch_version = "2.0.1"
+        self.amd_torchvision_version = "0.15.2a0"
 
         self.amd_torch_directml_version = "0.2.0.dev230426"
         
@@ -335,9 +335,9 @@ class Coordinator(QObject):
                 if not self.directml_version:
                     needed += ["torch-directml==" + self.amd_torch_directml_version]
             else:
-                if not "+rocm" in self.torch_version:
+                if not "2" in self.torch_version:
                     needed += ["torch=="+self.amd_torch_version]
-                if not "+rocm" in self.torchvision_version:
+                if not "0" in self.torchvision_version:
                     needed += ["torchvision=="+self.amd_torchvision_version]
             needed += self.optional_need
 
